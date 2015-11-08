@@ -118,15 +118,6 @@ samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
-button,
-input,
-optgroup,
-select,
-textarea {
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
 
 fieldset {
   border: 1px solid #c0c0c0;
@@ -173,14 +164,7 @@ body {
   color: #333333;
   background-color: #ffffff;
 }
-input,
-button,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
+
 a {
   color: #337ab7;
   text-decoration: none;
@@ -445,11 +429,6 @@ div.kmainpagebody
   background-image: linear-gradient(bottom, rgb(119,232,109) 20%, rgb(222,104,210) 51%, rgb(190,255,69) 96%);
 }
 
-#topbanner h1
-{
-	text-shadow:1px 1px 5px rgba(110,130,160,1);
-	color:rgba(80,110,80,1);
-}
 
 /*a:link {background-color:#80FF80;}    /* unvisited link */
 /*a:hover {background-color:#0066FF;}   /* mouse over link */
@@ -596,7 +575,7 @@ background-color: rgba(120,190,120,0.45);
 div.widgetcontainer
 {
 display:inline-block;
-background-color: #d9d9d9;
+background-color: #eee;
 padding-top: 0px;
 border-radius:5px;
 color: rgb(0,0,0);
@@ -604,11 +583,11 @@ padding: 10px;
 vertical-align:text-top;
 }
 
-div.widgetcontainer:hover
+/*div.widgetcontainer:hover
 {
-/*background-color: rgba(70,170,70,0.35);*/
+background-color: rgba(70,170,70,0.35);
 background-color: rgba(120,190,120,0.45);
-}
+}*/
 
 span.numericpv
 {
@@ -631,6 +610,34 @@ font-size:90%;
 div.meterwidget
 {
 text-align:center;
+}
+
+
+button
+{
+	display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 1em 1em;
+    color: #fff;
+    background-color: #0096db;
+    border-width: 0;
+    font-family: "proxima-nova",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    line-height: 1em;
+    font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    line-height: normal;
+    margin:2px;
 }
 
 button.triggerbuttonwidget
