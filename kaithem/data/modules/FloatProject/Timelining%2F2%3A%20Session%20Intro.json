@@ -1,0 +1,20 @@
+{
+    "action": "if not module.lightsduring.read():\r\n    module.fadeV(0,max(module.fadein.read(),0.1))\r\nmodule.stagelen = module.sessionlen\r\nmodule.fadePAL((0,0,0),3)\r\nmodule.fadeShower((0,0,0),3)\r\nmodule.fadeChanging((0,0,0),3)\r\nmodule.fadeMirror(0,3)",
+    "continual": false,
+    "disabled": false,
+    "once": true,
+    "priority": "interactive",
+    "rate-limit": 0.0,
+    "resource-type": "event",
+    "setup": "#This code runs once when the event loads. It also runs when you save the event during the test compile\r\n#and may run multiple times when kaithem boots due to dependancy resolution\r\n__doc__='Handle the fade out as soon as the session starts. TODO also handle music, shower lights, etc here'",
+    "trigger": "module.status == \"In Session\"",
+    "versions": {
+        "action": "if not module.lightsduring.read():\r\n    module.fadeV(0,max(module.fadeout.read(),0.1))",
+        "continual": false,
+        "priority": "interactive",
+        "rate-limit": 0.0,
+        "resource-type": "event",
+        "setup": "#This code runs once when the event loads. It also runs when you save the event during the test compile\r\n#and may run multiple times when kaithem boots due to dependancy resolution\r\n__doc__='Handle the fade out as soon as the session starts. TODO also handle music, shower lights, etc here'",
+        "trigger": "module.status = \"In Session\""
+    }
+}

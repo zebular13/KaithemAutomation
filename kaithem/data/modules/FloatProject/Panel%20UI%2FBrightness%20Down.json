@@ -1,0 +1,11 @@
+{
+    "action": "x=module.vCurrent()\r\nmodule.setV(max(0,x-0.1))",
+    "continual": false,
+    "disabled": false,
+    "once": true,
+    "priority": "interactive",
+    "rate-limit": 0.0,
+    "resource-type": "event",
+    "setup": "\"This event should run when the brightness down button gets pressed\"",
+    "trigger": "!onmsg pushed/12"
+}

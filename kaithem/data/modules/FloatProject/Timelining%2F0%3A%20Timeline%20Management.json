@@ -1,0 +1,20 @@
+{
+    "action": "module.timeline.service()",
+    "continual": true,
+    "disabled": false,
+    "once": true,
+    "priority": "interactive",
+    "rate-limit": 5.0,
+    "resource-type": "event",
+    "setup": "#This code runs once when the event loads. It also runs when you save the event during the test compile\r\n#and may run multiple times when kaithem boots due to dependancy resolution\r\n__doc__=''\r\nimport time, threading\r\n\r\nclass TimelineManager():\r\n    def __init__(self):\r\n        self.stages = {\"__stop__\":[ 0 , None, None]}\r\n        self.stagelen = 0\r\n        self.stagestart = 0\r\n        self.stage = \"__stop__\"\r\n        self.lock = threading.Lock()\r\n        self.scheduled = False\r\n        def f():\r\n            self.service()\r\n        self.f = f\r\n        \r\n    def service(self):\r\n        with self.lock:\r\n            if self.stagelen < time.time()-self.stagestart:\r\n                x = self.stages[self.stage]\r\n                if x[1]:\r\n                    self.stage = x[1]\r\n                s = self.stages[self.stage]\r\n                if s[2]:\r\n                \ts[2]()\r\n               \tself.stagelen = s[0]\r\n            else:\r\n                if not self.scheduled:\r\n                    try:\r\n                        self.scheduled.unregister()\r\n                    except:\r\n                        pass\r\n        \t        self.scheduled =scheduling.scheduler.schedule(self.f, self.stagelen+self.stagestart)\r\n                                         \r\n    def jump(self, s):\r\n        with self.lock:\r\n            if s in self.stages:\r\n            \tself.stage = s\r\n            else:\r\n                raise ValueError(\"Cannot jump to nonexistant stage\")\r\n                \r\n            \r\nmodule.timeline = TimelineManager()",
+    "trigger": "True",
+    "versions": {
+        "action": "module.timeline.service()",
+        "continual": true,
+        "priority": "interactive",
+        "rate-limit": 5.0,
+        "resource-type": "event",
+        "setup": "#This code runs once when the event loads. It also runs when you save the event during the test compile\r\n#and may run multiple times when kaithem boots due to dependancy resolution\r\n__doc__=''\r\nimport time, threading\r\n\r\nclass TimelineManager():\r\n    def __init__(self):\r\n        self.stages = {\"__stop__\":[ 0 , None, None]}\r\n        self.stagelen = 0\r\n        self.stagestart = 0\r\n        self.stage = \"__stop__\"\r\n        self.lock = threading.Lock()\r\n        self.scheduled = False\r\n        def f():\r\n            self.service()\r\n        self.f = f\r\n        \r\n    def service(self):\r\n        with self.lock:\r\n            if self.stagelen < time.time()-self.stagestart:\r\n                x = self.stages[self.stage]\r\n                if x[1]:\r\n                    self.stage = x[1]\r\n                s = self.stages[self.stage]\r\n                s[2]()\r\n               \tself.stagelen = s[0]\r\n            else:\r\n                if not self.scheduled:\r\n                    try:\r\n                        self.scheduled.unregister()\r\n                    except:\r\n                        pass\r\n        \t        self.scheduled =scheduling.scheduler.schedule(self.f, self.stagelen+self.stagestart)\r\n                                         \r\n\tdef jump(self, s):\r\n        with self.lock:\r\n            if s in self.stages:\r\n            \tself.stage = s\r\n            else:\r\n                raise ValueError(\"Cannot jump to nonexistant stage\")\r\n                \r\n            \r\nmodule.timeline = TimelineManager()",
+        "trigger": "True"
+    }
+}

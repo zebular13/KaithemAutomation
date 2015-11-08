@@ -1,0 +1,20 @@
+{
+    "action": "module.status = \"Post-Session\"",
+    "continual": false,
+    "disabled": false,
+    "once": true,
+    "priority": "high",
+    "rate-limit": 0.0,
+    "resource-type": "event",
+    "setup": "#This code runs once when the event loads. It also runs when you save the event during the test compile\r\n#and may run multiple times when kaithem boots due to dependancy resolution\r\n__doc__=''\r\nimport time",
+    "trigger": "module.status == \"Waiting for client to exit tank\" and (module.timeremaining()==0)",
+    "versions": {
+        "action": "module.status = \"Post-Session\"",
+        "continual": false,
+        "priority": "interactive",
+        "rate-limit": 0.0,
+        "resource-type": "event",
+        "setup": "#This code runs once when the event loads. It also runs when you save the event during the test compile\r\n#and may run multiple times when kaithem boots due to dependancy resolution\r\n__doc__=''",
+        "trigger": "module.status = \"Waiting for client to exit tank\" and ((time.time()-module.postsessionstart) > 60 * 3)"
+    }
+}

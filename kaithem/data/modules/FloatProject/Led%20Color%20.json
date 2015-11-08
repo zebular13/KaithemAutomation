@@ -1,0 +1,20 @@
+{
+    "action": "global wasdark \r\nif module.mode in colors:\r\n    x = int(module.paleness.read()*255)\r\n    y = colors[module.mode]\r\n    rgb = [max(x,y[0]),max(x,y[1]),max(x,y[2])]\r\n    \r\ndef get_sunset_color():\r\n    try:\r\n        p = sessiontime()/module.fadein.read()\r\n    except:\r\n        p =0\r\n        \r\n    p2 = p*(len(sunset_sequence)-1)\r\n    stage = int(p2)\r\n    f = p2-stage\r\n    return(fade(sunset_sequence[stage],sunset_sequence[stage+1],f))\r\n\r\nmodule.dbgs = get_sunset_color\r\n    \r\nif module.mode == \"sun\":\r\n    if module.sessiontime()<module.fadein.read():\r\n        rgb = get_sunset_color()\r\n    return\r\nelse:\r\n    rgb= [module.r.read(), module.g.read(), module.b.read()]\r\n\r\nkaithem.message.post(\"MainTank_color\",rgb)",
+    "continual": true,
+    "disabled": false,
+    "once": true,
+    "priority": "realtime",
+    "rate-limit": 0.02,
+    "resource-type": "event",
+    "setup": "\"Affect the main tank LED color but not the brightness\"\r\nimport time,math,struct\r\ncolors = {\r\n        'red': [255,0,0],\r\n        'orange': [255,128,0],\r\n        'yellow':  [255,255,0],\r\n        'green': [0,255,0],\r\n        'blue':  [0,0,255],\r\n        'purple': [255,0,255],\r\n        'white': [255,255,255],\r\n        'pink': [255,200,180]\r\n}\r\n\r\nsunset_sequence =[\r\n    [255,255,220],\r\n    [128,110,80],\r\n    [100,50,30],\r\n    [20,10,30],\r\n    [5,0,10],\r\n    [0,0,0],\r\n    [0,0,0]\r\n    ]\r\n\r\ndef fade(a,b,f):\r\n    r1 = a[0]\r\n    r2 = b[0]\r\n    g1 = a[1]\r\n    g2 = b[1]\r\n    b1 = a[2]\r\n    b2 = b[2]\r\n    return([int(r1*(1-f)+ r2*f),int(g1*(1-f)+ g2*f),int(b1*(1-f)+ b2*f)])\r\nmodule.colors = colors\r\n",
+    "trigger": "True",
+    "versions": {
+        "action": "global wasdark \r\nif module.mode in colors:\r\n    x = int(module.paleness.read()*255)\r\n    print(x)\r\n    y = colors[module.mode]\r\n    rgb = [max(x,y[0]),max(x,y[1]),max(x,y[2])]\r\nelif module.mode == \"custom\"\r\n\trgb= (module.r.read(), module.g.read(), module.b.read())\r\n    \r\ndef get_sunset_color():\r\n    try:\r\n        p = sessiontime()/module.fadein.read()\r\n    except:\r\n        p =0\r\n        \r\n    p2 = p*(len(sunset_sequence)-1)\r\n    stage = int(p2)\r\n    f = p2-stage\r\n    return(fade(sunset_sequence[stage],sunset_sequence[stage+1],f))\r\n\r\nmodule.dbgs = get_sunset_color\r\n    \r\nif module.mode == \"sun\":\r\n    if module.sessiontime()<module.fadein.read():\r\n        rgb = get_sunset_color()\r\n    return\r\n\r\nkaithem.message.post(\"MainTank_color\",rgb)",
+        "continual": true,
+        "priority": "realtime",
+        "rate-limit": 0.01,
+        "resource-type": "event",
+        "setup": "\"Affect the main tank LED color but not the brightness\"\r\nimport time,math,struct\r\ncolors = {\r\n        'red': [255,0,0],\r\n        'orange': [255,128,0],\r\n        'yellow':  [255,255,0],\r\n        'green': [0,255,0],\r\n        'blue':  [0,0,255],\r\n        'purple': [255,0,255],\r\n        'white': [255,255,255],\r\n        'pink': [255,200,180]\r\n}\r\n\r\nsunset_sequence =[\r\n    [255,255,220],\r\n    [128,110,80],\r\n    [100,50,30],\r\n    [20,10,30],\r\n    [5,0,10],\r\n    [0,0,0],\r\n    [0,0,0]\r\n    ]\r\n\r\ndef fade(a,b,f):\r\n    r1 = a[0]\r\n    r2 = b[0]\r\n    g1 = a[1]\r\n    g2 = b[1]\r\n    b1 = a[2]\r\n    b2 = b[2]\r\n    return([int(r1*(1-f)+ r2*f),int(g1*(1-f)+ g2*f),int(b1*(1-f)+ b2*f)])\r\n\r\n",
+        "trigger": "module.outputen.read()"
+    }
+}

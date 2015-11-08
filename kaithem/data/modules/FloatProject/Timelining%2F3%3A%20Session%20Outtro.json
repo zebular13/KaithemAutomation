@@ -1,0 +1,11 @@
+{
+    "action": "module.begincutscene()\r\nmodule.fadeV(1,module.fadeout.read())",
+    "continual": false,
+    "disabled": false,
+    "once": true,
+    "priority": "high",
+    "rate-limit": 0.0,
+    "resource-type": "event",
+    "setup": "#This code runs once when the event loads. It also runs when you save the event during the test compile\r\n#and may run multiple times when kaithem boots due to dependancy resolution\r\n__doc__='Fade the lights back in at the session start.'",
+    "trigger": "module.status == \"In Session\" and module.timeremaining() < module.fadeout.read()"
+}

@@ -1,0 +1,11 @@
+{
+    "action": "x = module.vCurrent\r\nmodule.fadeV(0.5 ,2)\r\ntime.sleep(2.1)\r\nmodule.fadeV(x, 2)",
+    "continual": false,
+    "disabled": false,
+    "once": true,
+    "priority": "interactive",
+    "rate-limit": 0.0,
+    "resource-type": "event",
+    "setup": "#This code runs once when the event loads. It also runs when you save the event during the test compile\r\n#and may run multiple times when kaithem boots due to dependancy resolution\r\n__doc__=''\r\nimport time",
+    "trigger": "module.status == \"In Session\" and module.timeremaining()< module.sessionlen/2"
+}

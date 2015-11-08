@@ -1,0 +1,11 @@
+{
+    "action": "module.status = \"Waiting for client to exit tank\"\r\nmodule.stagestart = time.time()\r\nmodule.stagelen = module.tank_exit_wait",
+    "continual": false,
+    "disabled": false,
+    "once": true,
+    "priority": "high",
+    "rate-limit": 0.0,
+    "resource-type": "event",
+    "setup": "#This code runs once when the event loads. It also runs when you save the event during the test compile\r\n#and may run multiple times when kaithem boots due to dependancy resolution\r\n__doc__=\"Runs at the end of client's actual hour in the tank\"\r\nimport time",
+    "trigger": "module.stagetime() > module.stagelen and module.status == \"In Session\""
+}

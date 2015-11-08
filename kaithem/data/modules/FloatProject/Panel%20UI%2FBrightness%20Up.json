@@ -1,0 +1,20 @@
+{
+    "action": "module.setV(min(1,module.vCurrent+0.1))",
+    "continual": false,
+    "disabled": false,
+    "once": true,
+    "priority": "interactive",
+    "rate-limit": 0.0,
+    "resource-type": "event",
+    "setup": "\"This event should run when the brightness up button gets pressed\"",
+    "trigger": "!onmsg pushed/9",
+    "versions": {
+        "action": "if module.brightness < 0.99:\r\n    module.brightness += 0.1\r\nelse:\r\n    module.brightness = 1",
+        "continual": false,
+        "priority": "interactive",
+        "rate-limit": 0.0,
+        "resource-type": "event",
+        "setup": "pass",
+        "trigger": "!onmessage pushed9"
+    }
+}
