@@ -432,9 +432,11 @@ div.kmainpagebody
 
 /*a:link {background-color:#80FF80;}    /* unvisited link */
 /*a:hover {background-color:#0066FF;}   /* mouse over link */
-div.sectionbox,main>section{border-style:solid; 
-border-width:1px;
-border-color:;
+div.sectionbox,main>section
+{
+border-style:solid; 
+border-width:2px;
+border-color:grey;
 border-radius: 7px;
 padding-top:0.2%;
 padding-bottom:0.5%;
@@ -442,7 +444,10 @@ padding-right:1%;
 padding-left:0.5%;
 margin:2px;
 }
-
+#page>main:nth-child(2) > .sectionbox:nth-child(2) > div:last-child
+{
+	background-color: red;
+}
 .ace_editor div {
     font: inherit!important
 }
@@ -574,13 +579,14 @@ background-color: rgba(120,190,120,0.45);
 
 div.widgetcontainer
 {
-display:inline-block;
+display:inline-block !important;
 background-color: #eee;
-padding-top: 0px;
-border-radius:5px;
-color: rgb(0,0,0);
-padding: 10px;
-vertical-align:text-top;
+padding-top: 0px !important;
+border-radius:5px !important;
+color: rgb(0,0,0) !important;
+padding: 10px !important;
+vertical-align:text-top !important;
+
 }
 
 /*div.widgetcontainer:hover
@@ -612,22 +618,25 @@ div.meterwidget
 text-align:center;
 }
 
+.instructions
+{
+	background-color: red;
+}
 
 button
 {
 	display: inline-block;
     width: auto;
     height: auto;
-    padding: 1em 1em;
+    padding: 0.5em 1em;
     color: #fff;
     background-color: #0096db;
     border-width: 0;
     font-family: "proxima-nova",Helvetica,Arial,sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1em;
     font-weight: normal;
     font-style: normal;
-    text-transform: uppercase;
     letter-spacing: 0px;
     text-align: center;
     text-decoration: none;
